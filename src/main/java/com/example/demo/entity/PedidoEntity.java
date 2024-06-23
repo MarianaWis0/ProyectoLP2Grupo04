@@ -43,7 +43,6 @@ public class PedidoEntity {
     private Integer pedidoId;
 
     @Column(name = "fecha_pedido", nullable = false, updatable = false)
-    @Temporal(TemporalType.TIMESTAMP)
     private LocalDate  fechaPedido;
 
     @Column(name = "estado_pedido")
@@ -59,9 +58,9 @@ public class PedidoEntity {
 	private String direccion;
     
     
-    
-    @Column(name="cantidad" , nullable = false)
-    private Integer cantped;
+    @ManyToOne
+    @JoinColumn(name="pago_id", nullable = false)
+    private MetPagoEntity pagos;
 
     
 	@ManyToOne

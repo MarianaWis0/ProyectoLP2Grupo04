@@ -14,7 +14,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 @Entity
-@Table(name = "tb_estreservas")
+@Table(name = "estado_reservas")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
