@@ -47,7 +47,7 @@ public class MenuEntity {
 	private BigDecimal precio;
 	
 	@ManyToOne
-    @JoinColumn(name = "id_cat", nullable = false) 
+    @JoinColumn(name = "id_categoria", nullable = false) 
     private CategoriaEntity categoria;
 
 	@OneToMany(mappedBy = "menuEntity", cascade = CascadeType.ALL)

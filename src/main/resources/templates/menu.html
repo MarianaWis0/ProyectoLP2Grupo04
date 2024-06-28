@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body::before {
+            content: "";
+            background-image: url('https://assets.mockflow.com/app/wireframepro/company/C99d92434c1d14e83b4ffa28302f9b5c0/projects/M2k68TLsPpb/images/thumbnails/Md9767b16cacfd29990dc07b88c75b7bc1718661801481');
+            filter: brightness(0.50);
+            background-size: cover;
+            background-repeat: no-repeat;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+       
+        }
+        
+        .container{
+        	 padding-top: 30px;
+        }
+        
+        .form-group{
+          padding-top: 100px;
+         float: left;
+            width: 20%;
+        }
+		
+
+        .table-container {
+            float: right;
+            width: 60%;
+            margin: 20px;
+         
+        }
+        
+       
+      
+        
+        .h {
+        color: white;
+        }
+    </style>
+
+    <meta charset="UTF-8">
+    <title>Menús</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+    <div class="container-fluid">
+        <a class="navbar-brand text-white">NameRestaurante</a>
+        <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-link" href="#">Nosotros ||</a>
+                <a class="nav-link active" href="#">Menú ||</a>
+                <a class="nav-link " href="#">Reserva ||</a>
+                <a class="nav-link" href="#">Cliente ||</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+
+    <div class="form-group">
+    	<div class="h">
+    	<h6>Explora</h6>
+    	<h5>Nuestros Menús</h5>
+    	</div>
+    	
+    	<br>
+        <form th:action="@{/categoria}" method="get">
+            <select class="form-control" name="catId">
+                <option value="">Todas las Categorías</option>
+                <option th:each="categoria : ${categorias}" th:value="${categoria.catId}"
+                        th:text="${categoria.nomCat}"></option>
+            </select>
+            <br>
+            <button type="submit" class="btn btn-success">Filtrar</button>
+        </form>
+    </div>
+
+    <div class="table-container">
+        <table class="table table-dark" >
+            <thead>
+            <tr >
+                <th >Nombre del Plato</th>
+                <th>Descripción</th>
+                <th >Precio</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="menu : ${menu}">
+                <td th:text="${menu.nomPlato}"></td>
+                <td th:text="${menu.descripcion}" ></td>
+                <td th:text="${menu.precio}" ></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+</body>
+</html>
