@@ -1,0 +1,169 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<!--author:starttemplate-->
+<!--reference site : starttemplate.com-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="keywords"
+          content="unique login form,leamug login form,boostrap login form,responsive login form,free css html login form,download login form">
+    <meta name="author" content="leamug">
+    <title>Unique Login Form | Bootstrap Templates</title>
+    <link href="css/style.css" rel="stylesheet" id="style">
+    <!-- Bootstrap core Library -->
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <!-- Google font -->
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
+    <!-- Font Awesome-->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<style>
+/*author:starttemplate*/
+/*reference site : starttemplate.com*/
+    body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body::before {
+            content: "";
+            background-image: url('https://assets.mockflow.com/app/wireframepro/company/C99d92434c1d14e83b4ffa28302f9b5c0/projects/M2k68TLsPpb/images/thumbnails/Md9767b16cacfd29990dc07b88c75b7bc1718661801481');
+            filter: brightness(0.50);
+            background-size: cover;
+            background-repeat: no-repeat;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+       
+        }
+
+.container {
+    padding: 30px;
+      -webkit-font-smoothing: antialiased;
+  			font: normal 14px Roboto,arial,sans-serif;
+  			font-family: 'Dancing Script', cursive!important;
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #ffffff!important;
+    opacity: 1; /* Firefox */
+    font-size:18px!important;
+}
+.form-login {
+    background-color: rgba(0,0,0,0.55);
+    padding-top: 10px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 15px;
+    border-color:#d2d2d2;
+    border-width: 5px;
+    color:white;
+    box-shadow:0 1px 0 #cfcfcf;
+}
+.form-control{
+    background:transparent!important;
+    color:white!important;
+    font-size: 18px!important;
+}
+h1{
+    color:white!important;
+}
+h4 { 
+ border:0 solid #fff; 
+ border-bottom-width:1px;
+ padding-bottom:10px;
+ text-align: center;
+}
+
+.form-control {
+    border-radius: 10px;
+}
+.text-white{
+    color: white!important;
+}
+.wrapper {
+    text-align: center;
+}
+.footer p{
+    font-size: 18px;
+}
+
+</style>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+    <div class="container-fluid">
+        <a class="navbar-brand text-white">NameRestaurante</a>
+        <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-link" href="#">Nosotros ||</a>
+                <a class="nav-link active" href="#">Menú ||</a>
+                <a class="nav-link " href="#">Reserva ||</a>
+                <a class="nav-link" href="#">Cliente ||</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+		<div th:if="${registroCorrecto}" class="alert alert-success mt-4" role="alert">
+            <span th:text="${registroCorrecto}"></span>
+        </div>
+        
+<!-- Page Content -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-offset-5 col-md-4 text-center">
+            <h1 class='text-white'>Unique Login Form</h1>
+              <div class="form-login"></br>
+                <h4>Crear Usuario</h4>
+                <br>
+              <form th:action="@{/registrar}" method="post" th:object="${usuario}" enctype="multipart/form-data">
+                <input th:field="*{correoUsuario}" type="email" class="form-control input-sm chat-input" placeholder="Correo Electronico" required>
+                <hr>
+				<input th:field="*{contraUsuario}" type="password" class="form-control input-sm chat-input" placeholder="Contraseña" required>
+				<hr>
+				<input th:field="*{fonoUsuario}" type="number" class="form-control input-sm chat-input" placeholder="Numero de Celular" required  >
+				<hr>
+				<input th:field="*{nomUsu}" type="text" class="form-control input-sm chat-input" placeholder="Nombres" required >
+				<hr>
+				<input th:field="*{apeUsuario}" type="text" class="form-control input-sm chat-input" placeholder="Apellidos" required >
+				<hr>
+				<input th:field="*{dniUsuario}" type="number" class="form-control input-sm chat-input" placeholder="Dni" required >
+				<hr>
+                <input name="foto" accept="image/*" class="btn btn-outline-secondary" required type="file" >
+                <hr>
+               <div class="wrapper"> 
+               <button class="btn btn-info" type="submit">Registrar</button>
+                 <br>
+                 <br>
+                   <p>Ya tienes una Cuenta? 	<a class="btn btn-secondary" href="/login">Iniciar Sesion</a></p> 
+      	           </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    </br></br></br>
+    <!--footer-->
+    <div class="footer text-white text-center">
+        <p>© 2020 Unique Login Form. All rights reserved | Design by <a href="https://freecss.tech">Free Css</a></p>
+    </div>
+    <!--//footer-->
+</div>
+</body>
+</html>

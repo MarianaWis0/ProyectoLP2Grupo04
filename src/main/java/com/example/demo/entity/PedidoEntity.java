@@ -58,9 +58,7 @@ public class PedidoEntity {
 	private String direccion;
     
     
-    @ManyToOne
-    @JoinColumn(name="pago_id", nullable = false)
-    private MetPagoEntity pagos;
+
 
     
 	@ManyToOne

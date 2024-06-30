@@ -74,10 +74,10 @@ public class UsuarioEntity {
 			)
 	private String contraUsuario;
 	
+	private String urlImagen;
 	
-	@ManyToOne
-	@JoinColumn(name="id_rol", nullable = false)
-	private RolEntity roles;
+	
+
 	
 	
 	

@@ -1,6 +1,21 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
+    
+    <!-- Bootstrap 4.5.2 CSS (Si prefieres usar esta versión específica) -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	
+
     <style>
         body {
             margin: 0;
@@ -47,33 +62,62 @@
         .h {
         color: white;
         }
+        
+        /* Estilo para la imagen en el navbar */
+    .profile-pic {
+        width: 40px; /* Ancho deseado para la imagen */
+        height: 40px; /* Altura deseada para la imagen */
+        object-fit: cover; /* Para asegurar que la imagen cubra completamente el espacio asignado */
+        border-radius: 50%; /* Para hacer la imagen circular */
+        margin-left: 10px; /* Margen izquierdo para separar la imagen del resto de los elementos */
+    }
     </style>
 
     <meta charset="UTF-8">
     <title>Menús</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-          crossorigin="anonymous">
+
+
 </head>
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
     <div class="container-fluid">
         <a class="navbar-brand text-white">NameRestaurante</a>
-        <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup" >
             <div class="navbar-nav">
                 <a class="nav-link" href="#">Nosotros ||</a>
                 <a class="nav-link active" href="#">Menú ||</a>
-                <a class="nav-link " href="#">Reserva ||</a>
-                <a class="nav-link" href="#">Cliente ||</a>
+                <a class="nav-link" href="#">Reserva ||</a>
+
+              <li class="nav-item dropdown" id="navbarNavDropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Acciones
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <a class="dropdown-item" href="/login">Cliente</a>
+                          <a style="color:red;" class="dropdown-item" href="/logout">Cerrar Sesion</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </li>
+
+                <img th:src="${'/usuario_foto/' + foto}" alt="Profile" class="profile-pic">
+                <a class="btn btn-link" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <svg class="bi bi-cart3" width="1.5em" height="1.5em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M1 1a.5.5 0 0 1 .5-.5h1.7l1.88 6.785a.5.5 0 0 0 .48.365h8.31a.5.5 0 0 0 .48-.365L13.8 3.5h1.7a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3.612l-.47 1.692a.5.5 0 0 0 .48.608h8.682a1.5 1.5 0 1 0 1.342-2H4.572l-.47 1.692a.5.5 0 0 0 .48.608h5.747a.5.5 0 1 1 0 1H4.682l-.47 1.692a.5.5 0 0 0 .48.608h5.566a1.5 1.5 0 1 0 1.342-2H4.196l-.47 1.692a.5.5 0 0 0 .48.608h3.905a.5.5 0 1 1 0 1H3.887a1.5 1.5 0 1 0 1.342-2H2.646l-.47 1.692a.5.5 0 0 0 .48.608H5.38a.5.5 0 1 1 0 1H2.128a1.5 1.5 0 1 0 1.342-2H1V1z"/>
+                    </svg>
+                    <span th:text="${cant_carrito}" class="badge badge-danger"></span>
+                </a>
             </div>
         </div>
     </div>
 </nav>
+
 
 <div class="container">
 
@@ -116,15 +160,7 @@
 
 </div>
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
+
 
 </body>
 </html>
