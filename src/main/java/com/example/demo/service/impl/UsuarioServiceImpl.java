@@ -69,4 +69,6 @@ public class UsuarioServiceImpl implements UsuarioService {
 		return usuarioRepository.findByCorreoUsuario(correo);
 	}
 
+
+
 }

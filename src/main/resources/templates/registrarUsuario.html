@@ -1,169 +1,142 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
-
-<!--author:starttemplate-->
-<!--reference site : starttemplate.com-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="keywords"
-          content="unique login form,leamug login form,boostrap login form,responsive login form,free css html login form,download login form">
-    <meta name="author" content="leamug">
-    <title>Unique Login Form | Bootstrap Templates</title>
-    <link href="css/style.css" rel="stylesheet" id="style">
-    <!-- Bootstrap core Library -->
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-    <!-- Google font -->
-    <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
-    <!-- Font Awesome-->
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-</head>
-
-<style>
-/*author:starttemplate*/
-/*reference site : starttemplate.com*/
-    body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-        }
-
-        body::before {
-            content: "";
-            background-image: url('https://assets.mockflow.com/app/wireframepro/company/C99d92434c1d14e83b4ffa28302f9b5c0/projects/M2k68TLsPpb/images/thumbnails/Md9767b16cacfd29990dc07b88c75b7bc1718661801481');
-            filter: brightness(0.50);
+    <title>Registrar</title>
+    
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+  
+    <style>
+        body {
+            background-image: url('https://i.pinimg.com/originals/af/07/ed/af07ed777318ec7c474804dbf7afdffb.gif');
             background-size: cover;
             background-repeat: no-repeat;
-            position: fixed;
-            top: 0;
-            left: 0;
             width: 100%;
             height: 100%;
-            z-index: -1;
-       
+        }
+        
+        .ki {
+            width: 50%; 
+            padding: 10px;
+              background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(10px); 
+            border-radius: 15px;
+            color: white;
+            margin: auto;
+        }
+        
+        .preview-container {
+            position: relative;
+            width: 80px;
+            height: 80px; 
+            overflow: hidden;
+            border-radius: 50%; 
+            margin-left: 10px;
+            display: none; 
         }
 
-.container {
-    padding: 30px;
-      -webkit-font-smoothing: antialiased;
-  			font: normal 14px Roboto,arial,sans-serif;
-  			font-family: 'Dancing Script', cursive!important;
-}
-::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-    color: #ffffff!important;
-    opacity: 1; /* Firefox */
-    font-size:18px!important;
-}
-.form-login {
-    background-color: rgba(0,0,0,0.55);
-    padding-top: 10px;
-    padding-bottom: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
-    border-radius: 15px;
-    border-color:#d2d2d2;
-    border-width: 5px;
-    color:white;
-    box-shadow:0 1px 0 #cfcfcf;
-}
-.form-control{
-    background:transparent!important;
-    color:white!important;
-    font-size: 18px!important;
-}
-h1{
-    color:white!important;
-}
-h4 { 
- border:0 solid #fff; 
- border-bottom-width:1px;
- padding-bottom:10px;
- text-align: center;
-}
-
-.form-control {
-    border-radius: 10px;
-}
-.text-white{
-    color: white!important;
-}
-.wrapper {
-    text-align: center;
-}
-.footer p{
-    font-size: 18px;
-}
-
-</style>
+        .preview-container img {
+            width: 100%;
+            height: 100%; 
+            object-fit: cover; 
+        }
+        
+      
+    </style>
+</head>
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
     <div class="container-fluid">
         <a class="navbar-brand text-white">NameRestaurante</a>
-        <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
             <div class="navbar-nav">
                 <a class="nav-link" href="#">Nosotros ||</a>
-                <a class="nav-link active" href="#">Menú ||</a>
-                <a class="nav-link " href="#">Reserva ||</a>
-                <a class="nav-link" href="#">Cliente ||</a>
+                <a class="nav-link " href="/categoria">Menú ||</a>
+                <a class="nav-link" href="/login">Iniciar Sesion</a>
             </div>
         </div>
     </div>
 </nav>
 
-		<div th:if="${registroCorrecto}" class="alert alert-success mt-4" role="alert">
+<div class="ki">
+    <div class="container mt-4">
+        <div th:if="${registroCorrecto}" class="alert alert-success" role="alert">
             <span th:text="${registroCorrecto}"></span>
         </div>
-        
-<!-- Page Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-md-offset-5 col-md-4 text-center">
-            <h1 class='text-white'>Unique Login Form</h1>
-              <div class="form-login"></br>
-                <h4>Crear Usuario</h4>
-                <br>
-              <form th:action="@{/registrar}" method="post" th:object="${usuario}" enctype="multipart/form-data">
-                <input th:field="*{correoUsuario}" type="email" class="form-control input-sm chat-input" placeholder="Correo Electronico" required>
-                <hr>
-				<input th:field="*{contraUsuario}" type="password" class="form-control input-sm chat-input" placeholder="Contraseña" required>
-				<hr>
-				<input th:field="*{fonoUsuario}" type="number" class="form-control input-sm chat-input" placeholder="Numero de Celular" required  >
-				<hr>
-				<input th:field="*{nomUsu}" type="text" class="form-control input-sm chat-input" placeholder="Nombres" required >
-				<hr>
-				<input th:field="*{apeUsuario}" type="text" class="form-control input-sm chat-input" placeholder="Apellidos" required >
-				<hr>
-				<input th:field="*{dniUsuario}" type="number" class="form-control input-sm chat-input" placeholder="Dni" required >
-				<hr>
-                <input name="foto" accept="image/*" class="btn btn-outline-secondary" required type="file" >
-                <hr>
-               <div class="wrapper"> 
-               <button class="btn btn-info" type="submit">Registrar</button>
-                 <br>
-                 <br>
-                   <p>Ya tienes una Cuenta? 	<a class="btn btn-secondary" href="/login">Iniciar Sesion</a></p> 
-      	           </div>
-                </form>
+
+        <h3>Crear Usuario</h3>
+        <form th:action="@{/registrar}" method="post" th:object="${usuario}" enctype="multipart/form-data">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Correo Electrónico</label>
+                        <input th:field="*{correoUsuario}" type="email" class="form-control" placeholder="Correo Electrónico" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Contraseña</label>
+                        <input th:field="*{contraUsuario}" type="password" class="form-control" placeholder="Contraseña" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Número de Celular</label>
+                        <input th:field="*{fonoUsuario}" type="number" class="form-control" placeholder="Número de Celular" required>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Nombres</label>
+                        <input th:field="*{nomUsu}" type="text" class="form-control" placeholder="Nombres" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Apellidos</label>
+                        <input th:field="*{apeUsuario}" type="text" class="form-control" placeholder="Apellidos" required>
+                    </div>
+                    <div class="form-group">
+                        <label>DNI</label>
+                        <input th:field="*{dniUsuario}" type="number" class="form-control" placeholder="DNI" required>
+                    </div>
+                </div>
             </div>
-        </div>
+            <div class="form-group">
+                <label for="fotoPerfil">Foto de Perfil</label>
+                <div class="d-flex align-items-center">
+                    <input id="fotoPerfil" name="foto" accept="image/*" class="form-control-file" type="file" onchange="previewImage(event)" required>
+                    <div class="preview-container" id="previewContainer">
+                        <img id="preview" src="#" alt="Vista previa de la imagen">
+                    </div>
+                </div>
+            </div>
+          
+            <div class="text-center">
+                <button class="btn btn-info w-50" type="submit" >Registrar</button>
+                <br><br>
+                <p>¿Ya tienes una cuenta? <a href="/login">Iniciar Sesión</a></p>
+            </div>
+        </form>
     </div>
-    </br></br></br>
-    <!--footer-->
-    <div class="footer text-white text-center">
-        <p>© 2020 Unique Login Form. All rights reserved | Design by <a href="https://freecss.tech">Free Css</a></p>
-    </div>
-    <!--//footer-->
 </div>
+
+<!-- Scripts de Bootstrap y jQuery -->
+<script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script>
+    function previewImage(event) {
+        var input = event.target;
+        var preview = document.getElementById('preview');
+        var previewContainer = document.getElementById('previewContainer');
+
+        var reader = new FileReader();
+        reader.onload = function(){
+            preview.src = reader.result;
+            previewContainer.style.display = 'block'; 
+        };
+        reader.readAsDataURL(input.files[0]);
+    }
+</script>
 </body>
 </html>

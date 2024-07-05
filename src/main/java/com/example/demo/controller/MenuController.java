@@ -32,9 +32,12 @@ public class MenuController {
 			return "redirect:/login";
 		}
 		
-		String correo = session.getAttribute("usuario").toString();
-		UsuarioEntity usuarioEntity = usuarioService.buscarUsuarioPorCorreo(correo);
-		model.addAttribute("foto", usuarioEntity.getUrlImagen());
+		   String correo = session.getAttribute("usuario").toString();
+		     UsuarioEntity usuarioEntity = usuarioService.buscarUsuarioPorCorreo(correo);
+		     String nombreCompleto = usuarioEntity.getNomUsu() + " " + usuarioEntity.getApeUsuario();
+
+		     model.addAttribute("foto", usuarioEntity.getUrlImagen());
+		     model.addAttribute("nombreUsuario", nombreCompleto);
 		
 		List<MenuEntity> menu;
         if (catId != null) {

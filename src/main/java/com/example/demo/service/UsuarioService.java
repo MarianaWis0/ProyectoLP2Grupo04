@@ -13,4 +13,5 @@ public interface UsuarioService {
 	boolean validarUsuario(UsuarioEntity usuarioEntity , HttpSession session);
 	UsuarioEntity buscarUsuarioPorCorreo(String correo);
 	
+	
 }

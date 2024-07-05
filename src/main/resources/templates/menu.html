@@ -5,38 +5,34 @@
           rel="stylesheet"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
           crossorigin="anonymous">
-    
-    <!-- Bootstrap 4.5.2 CSS (Si prefieres usar esta versión específica) -->
+
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    
-    <!-- jQuery -->
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    
-    <!-- Bootstrap JS -->
+
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 	
 
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-        }
-
-        body::before {
-            content: "";
-            background-image: url('https://assets.mockflow.com/app/wireframepro/company/C99d92434c1d14e83b4ffa28302f9b5c0/projects/M2k68TLsPpb/images/thumbnails/Md9767b16cacfd29990dc07b88c75b7bc1718661801481');
-            filter: brightness(0.50);
-            background-size: cover;
-            background-repeat: no-repeat;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
+     body {
+        margin: 0;
+        padding: 0;
        
-        }
+    }
+
+    body::before {
+        content: "";
+        background-image: url('https://img.freepik.com/fotos-premium/experiencia-gastronomica-moderna-ambiente-acogedor-mesas-sillas-elegantes-restaurante-ia-generativa_634358-2467.jpg?w=996');
+        filter: brightness(0.30);
+        background-size: cover;
+        background-repeat: no-repeat;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+    }
         
         .container{
         	 padding-top: 30px;
@@ -63,13 +59,13 @@
         color: white;
         }
         
-        /* Estilo para la imagen en el navbar */
+       
     .profile-pic {
-        width: 40px; /* Ancho deseado para la imagen */
-        height: 40px; /* Altura deseada para la imagen */
-        object-fit: cover; /* Para asegurar que la imagen cubra completamente el espacio asignado */
-        border-radius: 50%; /* Para hacer la imagen circular */
-        margin-left: 10px; /* Margen izquierdo para separar la imagen del resto de los elementos */
+        width: 40px; 
+        height: 40px; 
+        object-fit: cover;
+        border-radius: 50%; 
+        margin-left: 10px;
     }
     </style>
 
@@ -91,7 +87,8 @@
             <div class="navbar-nav">
                 <a class="nav-link" href="#">Nosotros ||</a>
                 <a class="nav-link active" href="#">Menú ||</a>
-                <a class="nav-link" href="#">Reserva ||</a>
+                <a class="nav-link" th:href="@{/reservas}">Reserva ||</a>
+                
 
               <li class="nav-item dropdown" id="navbarNavDropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -106,6 +103,7 @@
                     </div>
                 </li>
 
+				<a class="nav-link" th:text="${nombreUsuario}"> ||</a>
                 <img th:src="${'/usuario_foto/' + foto}" alt="Profile" class="profile-pic">
                 <a class="btn btn-link" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     <svg class="bi bi-cart3" width="1.5em" height="1.5em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">

@@ -14,6 +14,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -36,15 +38,21 @@ public class ReservasEntity {
 		private Integer reservaId;
 	
 	@Column(name = "fecha_reserva", nullable = false)
+	@DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
 	@Temporal(TemporalType.TIMESTAMP)
 	    private Date fecReserva;
 	
 	@Column(name = "numero_personas", nullable = false)
 	private int numPersonas;
 	
-	@ManyToOne
-    @JoinColumn(name = "id_estado") 
-    private EstReservaEntity estadoReserva;
+
+	@Column(name = "ocacion_especial", nullable = true,  length = 100)
+	private String ocacion;
+	
+	
+//	@ManyToOne
+//    @JoinColumn(name = "id_estado") 
+//    private EstReservaEntity estadoReserva;
 	
 	@ManyToOne
 	@JoinColumn(name="id_usuario", nullable = false)
