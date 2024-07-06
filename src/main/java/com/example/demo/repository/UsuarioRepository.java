@@ -10,5 +10,6 @@ import com.example.demo.entity.UsuarioEntity;
 public interface UsuarioRepository extends JpaRepository < UsuarioEntity , Integer> {
 	
 	UsuarioEntity findByCorreoUsuario(String correoUsuario);
+	UsuarioEntity findByUsuarioId(Integer usuarioId);
 	
 }

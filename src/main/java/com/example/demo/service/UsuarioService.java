@@ -12,6 +12,8 @@ public interface UsuarioService {
 	void crearUsuario(UsuarioEntity usuarioEntity , Model model , MultipartFile foto);
 	boolean validarUsuario(UsuarioEntity usuarioEntity , HttpSession session);
 	UsuarioEntity buscarUsuarioPorCorreo(String correo);
+	UsuarioEntity actualizarUsuario(UsuarioEntity usuarioEntity);
+	UsuarioEntity buscarUsuarioId(Integer id);
 	
 	
 }

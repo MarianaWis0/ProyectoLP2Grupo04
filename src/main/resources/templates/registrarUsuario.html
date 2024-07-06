@@ -28,7 +28,7 @@
         
         .preview-container {
             position: relative;
-            width: 80px;
+            width: 90px;
             height: 80px; 
             overflow: hidden;
             border-radius: 50%; 
@@ -70,7 +70,8 @@
             <span th:text="${registroCorrecto}"></span>
         </div>
 
-        <h3>Crear Usuario</h3>
+        <h3>¡Registrate!</h3>
+        <br>
         <form th:action="@{/registrar}" method="post" th:object="${usuario}" enctype="multipart/form-data">
             <div class="row">
                 <div class="col-md-6">

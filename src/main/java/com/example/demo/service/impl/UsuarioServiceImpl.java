@@ -29,15 +29,12 @@ public class UsuarioServiceImpl implements UsuarioService {
 		String nombreFoto = Utilitarios.guardarImagen(foto);
 		usuarioEntity.setUrlImagen(nombreFoto);
 		
-		//Hash Password
 		String passwordHash = Utilitarios.extraerHash(usuarioEntity.getContraUsuario());
 		usuarioEntity.setContraUsuario(passwordHash);
 		
-		// guardar usuario
 	
 		usuarioRepository.save(usuarioEntity);
 		
-		// responder a la vista
 		model.addAttribute("registroCorrecto", "Registro Correcto");
 		model.addAttribute("usuario", new UsuarioEntity());
 		
@@ -48,17 +45,14 @@ public class UsuarioServiceImpl implements UsuarioService {
 		UsuarioEntity usuarioEncontradoPorcCorreo = 
 				usuarioRepository.findByCorreoUsuario(usuarioEntity.getCorreoUsuario());
 		
-		// Correo existe?
 		if(usuarioEncontradoPorcCorreo == null) {
 			return false;
 		}
-		// validar si el password input hace match con password de base de datos
 		if(!Utilitarios.checkPassword(usuarioEntity.getContraUsuario(), 
 				usuarioEncontradoPorcCorreo.getContraUsuario())) {
 			return false;
 		}
 		
-		//login exitoso
 		session.setAttribute("usuario", usuarioEncontradoPorcCorreo.getCorreoUsuario());
 		
 		return true;
@@ -69,6 +63,31 @@ public class UsuarioServiceImpl implements UsuarioService {
 		return usuarioRepository.findByCorreoUsuario(correo);
 	}
 
+	@Override
+	public UsuarioEntity actualizarUsuario(UsuarioEntity usuarioEntity) {
+	    UsuarioEntity buscarUsuarioId = usuarioRepository.findByUsuarioId(usuarioEntity.getUsuarioId());
+	    if (buscarUsuarioId != null) {
+	    	buscarUsuarioId.setNomUsu(usuarioEntity.getNomUsu());
+	    	buscarUsuarioId.setApeUsuario(usuarioEntity.getApeUsuario());
+	    	buscarUsuarioId.setFonoUsuario(usuarioEntity.getFonoUsuario());
+	    	
+	
+	        return usuarioRepository.save(buscarUsuarioId);
+	    }
+	    return null; 
+	}
+
+	@Override
+	public UsuarioEntity buscarUsuarioId(Integer id) {
+		return usuarioRepository.findByUsuarioId(id);
+	}
+
+	
+	
+
+		
+	
+	
 
 
 }

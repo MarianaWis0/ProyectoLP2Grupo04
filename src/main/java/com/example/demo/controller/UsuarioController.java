@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
@@ -65,4 +67,40 @@ public class UsuarioController {
 		session.invalidate();
 		return "redirect:/login";
 	}
+	
+	@GetMapping("/editar_usuario")
+	public String showEditarUsuario(Model model, HttpSession session) {
+	    if (session.getAttribute("usuario") == null) {
+	        return "redirect:/login";
+	    }
+
+	    String correo = session.getAttribute("usuario").toString();
+	    UsuarioEntity usuarioEntity = usuarioService.buscarUsuarioPorCorreo(correo);
+	    model.addAttribute("usuario", usuarioEntity); 
+	    model.addAttribute("foto", usuarioEntity.getUrlImagen());
+
+	    return "editarUsuario";
+	}
+
+	@PostMapping("/editar_usuario")
+	public String actualizarUsuario(@ModelAttribute("usuario") UsuarioEntity usuarioEntity, HttpSession session) {
+	    if (session.getAttribute("usuario") == null) {
+	        return "redirect:/login";
+	    }
+
+	    UsuarioEntity usuarioActualizado = usuarioService.actualizarUsuario(usuarioEntity);
+	 
+
+	    session.setAttribute("usuario", usuarioActualizado.getCorreoUsuario());
+
+	    return "redirect:/categoria";
+	}
+	
+	
+    
+  
+
+
+	
+	
 }
