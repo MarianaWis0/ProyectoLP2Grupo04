@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
+    <link rel="icon" type="image/png" href="https://assets.mockflow.com/app/wireframepro/company/C99d92434c1d14e83b4ffa28302f9b5c0/projects/M2k68TLsPpb/images/thumbnails/M131a77798ce2ea7da91aa43f73b57e691718669850501">
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	
+
+    <style>
+     body {
+        margin: 0;
+        padding: 0;
+       
+    }
+
+    body::before {
+        content: "";
+        background-image: url('https://img.freepik.com/fotos-premium/experiencia-gastronomica-moderna-ambiente-acogedor-mesas-sillas-elegantes-restaurante-ia-generativa_634358-2467.jpg?w=996');
+        filter: brightness(0.30);
+        background-size: cover;
+        background-repeat: no-repeat;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+    }
+        
+      
+        .container{
+        	 padding-top: 30px;
+        }
+        
+        .form-group{
+          padding-top: 100px;
+         float: left;
+            width: 20%;
+        }
+		
+
+        .table-container {
+            float: right;
+            width: 60%;
+            margin: 20px;
+         
+        }
+        
+       
+      
+        
+        .h {
+        color: white;
+        }
+        
+       
+    .profile-pic {
+        width: 40px; 
+        height: 40px; 
+        object-fit: cover;
+        border-radius: 50%; 
+        margin-left: 10px;
+    }
+    </style>
+
+    <meta charset="UTF-8">
+    <title>Menús</title>
+
+
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand text-white">La Criollada de Chester</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link" th:href="@{/nosotros}">Nosotros ||</a>
+                    <a class="nav-link" th:href="@{/menu}">Menú ||</a>
+                    <a class="nav-link" th:href="@{/login}">Iniciar Sesion</a>
+                   
+                </div>
+            </div>
+        </div>
+    </nav>
+  </nav>
+
+<div class="container">
+
+    <div class="form-group">
+    	<div class="h">
+    	<h6>Explora</h6>
+    	<h5>Nuestros Menús</h5>
+    	</div>
+    	
+    	<br>
+        <form th:action="@{/menu}" method="get">
+            <select class="form-control" name="catId">
+                <option value="">Todas las Categorías</option>
+                <option th:each="categoria : ${categorias}" th:value="${categoria.catId}"
+                        th:text="${categoria.nomCat}"></option>
+            </select>
+            <br>
+            <button type="submit" class="btn btn-success">Filtrar</button>
+        </form>
+    </div>
+
+<div class="table-container">
+    <table class="table table-dark">
+        <thead>
+            <tr>
+                <th class="text-center">Nombre del Plato</th>
+                <th class="text-center">Descripción</th>
+                <th class="text-center" style="width: 20%;">Precio</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="menu : ${menu}">
+                <td class="text-center" th:text="${menu.nomPlato}"></td>
+                <td class="text-center" th:text="${menu.descripcion}"></td>
+                <td class="text-center">S/ <span th:text="${menu.precio}"></span></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosotros - Empresa XYZ</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+        
+          body::before {
+        content: "";
+        background-image: url('https://img.freepik.com/fotos-premium/experiencia-gastronomica-moderna-ambiente-acogedor-mesas-sillas-elegantes-restaurante-ia-generativa_634358-2467.jpg?w=996');
+        filter: brightness(0.30);
+        background-size: cover;
+        background-repeat: no-repeat;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+    }
+      .profile-pic {
+        width: 40px; 
+        height: 40px; 
+        object-fit: cover;
+        border-radius: 50%; 
+        margin-left: 10px;
+    }
+       
+
+        .image-container {
+            height: 150px; 
+            background-color: #333; 
+            margin-bottom: 20px; 
+            border: 1px solid #ccc; 
+            border-radius: 8px; 
+            overflow: hidden; 
+        }
+
+        .image-container img {
+            width: 100%; 
+            height: auto; 
+        }
+
+        .social-icons {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .social-icons li {
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        .social-icons li a {
+            color: #fff; 
+            font-size: 20px;
+        }
+
+        .map-container {
+            border: 1px solid #ccc; 
+            border-radius: 8px; 
+            overflow: hidden; 
+            margin-top: 15px; 
+        }
+    </style>
+</head>
+<body>
+    
+   <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+    <div class="container-fluid">
+        <a class="navbar-brand text-white"><strong>La Criollada de Chester</strong></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup" >
+            <div class="navbar-nav">
+              <a class="nav-link " th:href="@{/index}">Nosotros ||</a>
+                <a class="nav-link active" th:href="@{/categoria}">Menú ||</a>
+                <a class="nav-link" th:href="@{/reservas}">Reserva ||</a>
+                
+
+              <li class="nav-item dropdown" id="navbarNavDropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Acciones
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <a class="dropdown-item" th:href="@{/editar_usuario}">Mi cuenta</a>
+                          <a style="color:red;" class="dropdown-item" href="/logout">Cerrar Sesion</a>
+                       
+                    </div>
+                </li>
+
+				<a class="nav-link" th:text="${nombreUsuario}"> ||</a>
+                <img th:src="${'/usuario_foto/' + foto}" alt="Profile" class="profile-pic">
+                <a class="btn btn-link" data-toggle="modal" data-target="#exampleModal">
+           <svg class="bi bi-cart3" width="1.5em" height="1.5em" viewBox="0 0 16 16" fill="white" xmlns="http://www.w3.org/2000/svg">
+    <path fill-rule="evenodd" d="M1 1a.5.5 0 0 1 .5-.5h1.7l1.88 6.785a.5.5 0 0 0 .48.365h8.31a.5.5 0 0 0 .48-.365L13.8 3.5h1.7a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3.612l-.47 1.692a.5.5 0 0 0 .48.608h8.682a1.5 1.5 0 1 0 1.342-2H4.572l-.47 1.692a.5.5 0 0 0 .48.608h5.747a.5.5 0 1 1 0 1H4.682l-.47 1.692a.5.5 0 0 0 .48.608h5.566a1.5 1.5 0 1 0 1.342-2H4.196l-.47 1.692a.5.5 0 0 0 .48.608h3.905a.5.5 0 1 1 0 1H3.887a1.5 1.5 0 1 0 1.342-2H2.646l-.47 1.692a.5.5 0 0 0 .48.608H5.38a.5.5 0 1 1 0 1H2.128a1.5 1.5 0 1 0 1.342-2H1V1z"/>
+</svg>
+
+            <span th:text="${cant_carrito}" class="badge badge-danger"></span>
+        </a>
+            </div>
+        </div>
+    </div>
+</nav>
+	
+    <!-- Contenido principal -->
+    <div class="container mt-5">
+        <div class="row">
+            
+            <div class="col-md-3">
+                <div class="image-container">
+                    <img src="https://onajunket.com/wp-content/uploads/2016/12/LOMO-SALTADO.jpg" alt="Comida peruana 1">
+                </div>
+                <div class="image-container">
+                    <img src="https://th.bing.com/th/id/OIP.BTob14rlW9s7JCxZhrvbGAAAAA?rs=1&pid=ImgDetMain" alt="Comida peruana 3">
+                </div>
+                <div class="image-container">
+                    <img src="https://perupationline.com/wp-content/uploads/2021/02/PISCO-SOUR.jpg" alt="Comida peruana 2">
+                </div>
+                 <div class="image-container">
+                    <img src="https://th.bing.com/th/id/R.160f5694a9c1dae74e76d5e873637a4f?rik=IDQJUz5iDt6X2A&riu=http%3a%2f%2fsalpimenta.com.ar%2fwp-content%2fuploads%2f2016%2f02%2fcomida-peruana.jpg&ehk=aaSvPvEYGnKiSJGV93POOacdgVwqBnQIaazrOmM2dBQ%3d&risl=&pid=ImgRaw&r=0" alt="Comida peruana 2">
+                </div>
+            </div>
+            
+            <div class="col-md-9">
+            	<div style="color:white;">
+            	     <h1>Nosotros</h1>
+               		 <p>Te invitamos a descubrir la magia de la gastronomía peruana Desde platos icónicos como ceviches y tiraditos hasta exquisitas preparaciones de lomo saltado y causa limeña, cada visita es una oportunidad para explorar y saborear lo mejor de Perú en cada bocado.</p>
+            	</div>
+        
+                
+                
+                <!-- Mapa de Google -->
+                <div class="mt-4 map-container">
+                    
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe class="embed-responsive-item" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15605.72199437922!2d-77.042754!3d-12.046373!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c7a8509c3c2d%3A0x7e8b5cb9a174b5ab!2sLima%2C%20Per%C3%BA!5e0!3m2!1sen!2sus!4v1625567863942!5m2!1sen!2sus" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+                
+                <div class="mt-4">
+    
+                    <ul class="social-icons">
+                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                        <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS y cualquier otro script que necesites -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+</body>
+</html>

@@ -42,6 +42,22 @@ public class MenuController {
 	@Autowired
 	private UsuarioService usuarioService;
     
+	@GetMapping("/index")
+	private String verNosotros(HttpSession session, Model model) {
+		if(session.getAttribute("usuario") == null) {
+			return "redirect:/login";
+		}
+		
+		   String correo = session.getAttribute("usuario").toString();
+		     UsuarioEntity usuarioEntity = usuarioService.buscarUsuarioPorCorreo(correo);
+		     String nombreCompleto = usuarioEntity.getNomUsu() + " " + usuarioEntity.getApeUsuario();
+
+		     model.addAttribute("foto", usuarioEntity.getUrlImagen());
+		     model.addAttribute("nombreUsuario", nombreCompleto);
+		return "nosotros";
+	}
+	
+	
 	  @GetMapping("/categoria")
 		public String showMenu(HttpSession session, Model model , @RequestParam(name = "catId", required = false) Integer catId) {
 			if(session.getAttribute("usuario") == null) {
