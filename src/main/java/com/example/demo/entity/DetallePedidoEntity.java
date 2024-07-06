@@ -41,14 +41,7 @@ public class DetallePedidoEntity {
 	@JoinColumn(name = "id_pedido", nullable = false)
 	private PedidoEntity pedidoEntity;
     
-//    MenuEntity mn = new MenuEntity();
-    /* profe quiero saber como podemos traer el monto de los menus y
-     *  despues hallar el monto total ha pagar de todo 
-     * los Menus agregados
-     */
-//    public BigDecimal montoTotal() {
-//        return menuEntity.getPrecio().multiply(BigDecimal.valueOf(cantidad));
-//    }
+
     
     
 }

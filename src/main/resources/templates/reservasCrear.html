@@ -11,9 +11,10 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 <style>
-    body {
+     body {
         margin: 0;
         padding: 0;
+       
     }
 
     body::before {
@@ -116,8 +117,7 @@
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="/login">Cliente</a>
                         <a style="color:red;" class="dropdown-item" href="/logout">Cerrar Sesion</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
+                    
                     </div>
                 </li>
                 <a class="nav-link" th:text="${nombreUsuario}"> ||</a>

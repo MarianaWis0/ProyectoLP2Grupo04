@@ -45,20 +45,6 @@ public class PedidoEntity {
     @Column(name = "fecha_pedido", nullable = false, updatable = false)
     private LocalDate  fechaPedido;
 
-    @Column(name = "estado_pedido")
-    @Enumerated(EnumType.STRING) 
-    private EstadoPedido estado;
-
-    public enum EstadoPedido {
-        EN_PROCESO,
-        ENTREGADO
-    }
-    
-    @Column(name="direccion" , nullable = false)
-	private String direccion;
-    
-    
-
 
     
 	@ManyToOne

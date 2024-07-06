@@ -38,6 +38,11 @@ public class MenuServiceImpl implements MenuService{
 	        return categoriaRepository.findAll();
 	    
 	    }
+
+	  @Override
+	  public MenuEntity buscarMenuPorId(Integer id) {
+	      return menuRepository.findById((int) id.longValue()).get();
+	  }
    
 
 }

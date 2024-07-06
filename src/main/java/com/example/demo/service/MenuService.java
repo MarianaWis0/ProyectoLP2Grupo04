@@ -14,6 +14,7 @@ public interface MenuService {
 	 List<MenuEntity> obtenerMenu();
 	    List<MenuEntity> buscarMenuPorCategoria(Integer catId);
 	    List<CategoriaEntity> obtenerCategorias();
+	    MenuEntity buscarMenuPorId(Integer id);
 	     
 }
 

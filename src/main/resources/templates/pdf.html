@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Factura de Pedido</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 100%;
+            margin: 20px auto;
+        }
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        .table th, .table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            font-size: 14px; 
+        }
+        
+          .table td:nth-child(4) {
+        width: 15%;
+        padding: 12px; 
+    }
+        
+        .table th {
+            background-color: #f2f2f2;
+        }
+        .text-right {
+            text-align: right;
+        }
+        .text-left {
+            text-align: left;
+        }
+        .logo {
+            float: left;
+            margin-right: 20px;
+        }
+        .firm {
+            margin-top: 20px;
+            text-align: left;
+        }
+        .firm img {
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="https://assets.mockflow.com/app/wireframepro/company/C99d92434c1d14e83b4ffa28302f9b5c0/projects/M2k68TLsPpb/images/thumbnails/M131a77798ce2ea7da91aa43f73b57e691718669850501" alt="Logo de tu empresa" width="100">
+        </div>
+        <h2 class="text-left">Factura de Pedido</h2>
+        <p><strong>Fecha de Emisión:</strong> <span th:text="${#dates.format(#dates.createNow(), 'dd/MM/yyyy HH:mm')}"></span></p>
+        <p><strong>Cliente:</strong> <span th:text="${nombreUsuario}"></span></p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre del Plato</th>
+                    <th>Descripción</th>
+                    <th>Precio</th>
+                    <th>Cantidad</th>
+                    <th>Subtotal</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="ped: ${factura}">
+                    <td th:text="${ped.menuEntity.menuId}"></td>
+                    <td th:text="${ped.menuEntity.nomPlato}"></td>
+                    <td th:text="${ped.menuEntity.descripcion}"></td>
+                    <td th:text="'S/ ' + ${ped.menuEntity.precio}"></td>
+                    <td th:text="${ped.cantidad}"></td>
+                    <td th:text="'S/ ' + ${ped.cantidad * ped.menuEntity.precio}"></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="text-right">
+            <p><strong>Total:</strong> <span th:text="'S/ ' + ${precio_total}"></span></p>
+        </div>
+        <div class="firm">
+            <p>Firma:</p><img src="https://upload.wikimedia.org/wikipedia/commons/7/7f/Firma_Christian_Vittori.svg" alt="Firma" />
+        </div>
+    </div>
+</body>
+</html>
