@@ -5,6 +5,7 @@
           rel="stylesheet"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
           crossorigin="anonymous">
+    <link rel="icon" type="image/png" href="https://assets.mockflow.com/app/wireframepro/company/C99d92434c1d14e83b4ffa28302f9b5c0/projects/M2k68TLsPpb/images/thumbnails/M131a77798ce2ea7da91aa43f73b57e691718669850501">
 
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
@@ -141,24 +142,25 @@
     <table class="table table-dark">
         <thead>
             <tr>
-                <th>Nombre del Plato</th>
-                <th>Descripción</th>
-                <th>Precio</th>
+                <th class="text-center">Nombre del Plato</th>
+                <th class="text-center">Descripción</th>
+                <th class="text-center" style="width: 20%;">Precio</th>
                 <th></th>
             </tr>
         </thead>
         <tbody>
             <tr th:each="menu : ${menu}">
-                <td th:text="${menu.nomPlato}"></td>
-                <td th:text="${menu.descripcion}"></td>
-                <td th:text="${menu.precio}"></td>
+                <td class="text-center" th:text="${menu.nomPlato}"></td>
+                <td class="text-center" th:text="${menu.descripcion}"></td>
+                <td class="text-center">S/ <span th:text="${menu.precio}"></span></td>
+                
                 <td>
                     <form action="/agregar_producto" method="post" class="form-inline">
                         <input name="menuId" type="hidden" th:value="${menu.menuId}">
                         <div class="input-group input-group-sm mb-3">
-                            <input name="cant" placeholder="Cantidad" class="form-control" type="number" required>
+                            <input name="cant" placeholder="Cantidad" class="form-control" type="number" min="0" required>
                             <div class="input-group-append">
-                                <button type="submit" class="btn btn-primary">Agregar +</button>
+                                <button type="submit" class="btn btn-primary">Agregar</button>
                             </div>
                         </div>
                     </form>
@@ -166,11 +168,7 @@
             </tr>
         </tbody>
     </table>
-    
-    
 </div>
-
-
 
 
 </div>

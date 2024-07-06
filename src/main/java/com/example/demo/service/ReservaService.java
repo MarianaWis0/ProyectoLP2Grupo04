@@ -14,5 +14,7 @@ public interface ReservaService {
 	void crearReserva(ReservasEntity reservasEntity, Model model);
 
 	List<ReservasEntity> listarReservasPorUsuario(UsuarioEntity usuario);
-
+	void eliminarReserva(Integer id);
+	
+	ReservasEntity buscarReservaPorId(Integer id);
 }

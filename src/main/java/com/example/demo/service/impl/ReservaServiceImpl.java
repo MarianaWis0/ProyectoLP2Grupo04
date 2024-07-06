@@ -29,5 +29,17 @@ public class ReservaServiceImpl implements ReservaService{
 	    public List<ReservasEntity> listarReservasPorUsuario(UsuarioEntity usuario) {
 	        return reservaRepository.findByUsuarios(usuario);
 	    }
+
+	@Override
+	public void eliminarReserva(Integer id) {
+		reservaRepository.deleteById(id);
+		
+	}
+
+	@Override
+	public ReservasEntity buscarReservaPorId(Integer id) {
+		return reservaRepository.findById(id.intValue()).get();
+	}
     
+	 
 }

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalle del Producto</title>
+   
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  
+    <style>
+     body {
+        margin: 0;
+        padding: 0;
+       
+    }
+
+    body::before {
+        content: "";
+        background-image: url('https://img.freepik.com/fotos-premium/experiencia-gastronomica-moderna-ambiente-acogedor-mesas-sillas-elegantes-restaurante-ia-generativa_634358-2467.jpg?w=996');
+        filter: brightness(0.30);
+        background-size: cover;
+        background-repeat: no-repeat;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+    }
+    
+        
+    .profile-pic {
+        width: 40px; 
+        height: 40px; 
+        object-fit: cover;
+        border-radius: 50%; 
+        margin-left: 10px;
+    }
+    
+    .caf{
+        padding-top: 30px;
+            width: 70%;
+            margin: 0 auto;
+         }
+    
+    </style>
+</head>
+<body>
+
+
+<nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+    <div class="container-fluid">
+        <a class="navbar-brand text-white">NameRestaurante</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup" >
+            <div class="navbar-nav">
+                <a class="nav-link" href="#">Nosotros ||</a>
+                <a class="nav-link active" href="#">Menú ||</a>
+                <a class="nav-link" th:href="@{/reservas}">Reserva ||</a>
+                
+
+              <li class="nav-item dropdown" id="navbarNavDropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Acciones
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <a class="dropdown-item" th:href="@{/editar_usuario}">Mi cuenta</a>
+                          <a style="color:red;" class="dropdown-item" href="/logout">Cerrar Sesion</a>
+                       
+                    </div>
+                </li>
+
+				<a class="nav-link" th:text="${nombreUsuario}"> ||</a>
+                <img th:src="${'/usuario_foto/' + foto}" alt="Profile" class="profile-pic">
+                <a class="btn btn-link" data-toggle="modal" data-target="#exampleModal">
+           <svg class="bi bi-cart3" width="1.5em" height="1.5em" viewBox="0 0 16 16" fill="white" xmlns="http://www.w3.org/2000/svg">
+    <path fill-rule="evenodd" d="M1 1a.5.5 0 0 1 .5-.5h1.7l1.88 6.785a.5.5 0 0 0 .48.365h8.31a.5.5 0 0 0 .48-.365L13.8 3.5h1.7a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3.612l-.47 1.692a.5.5 0 0 0 .48.608h8.682a1.5 1.5 0 1 0 1.342-2H4.572l-.47 1.692a.5.5 0 0 0 .48.608h5.747a.5.5 0 1 1 0 1H4.682l-.47 1.692a.5.5 0 0 0 .48.608h5.566a1.5 1.5 0 1 0 1.342-2H4.196l-.47 1.692a.5.5 0 0 0 .48.608h3.905a.5.5 0 1 1 0 1H3.887a1.5 1.5 0 1 0 1.342-2H2.646l-.47 1.692a.5.5 0 0 0 .48.608H5.38a.5.5 0 1 1 0 1H2.128a1.5 1.5 0 1 0 1.342-2H1V1z"/>
+</svg>
+
+            <span th:text="${cant_carrito}" class="badge badge-danger"></span>
+        </a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+
+<div class="caf">
+<div class="card text-bg-light mb-3">
+  <div class="card-header">Detalles de la Reserva</div>
+  <div class="card-body">
+    
+    
+		  <p class="card-text">ID de reserva: <span th:text="${reserva.reservaId}"></span></p>
+		<p class="card-text">Fecha de reserva: <span th:text="${#dates.format(reserva.fecReserva, 'dd/MM/yyyy HH:mm')}"></span></p>
+		<p class="card-text">Número de personas: <span th:text="${reserva.numPersonas}"></span></p>
+		<p class="card-text">Ocasión especial: <span th:text="${reserva.ocacion}"></span></p>
+		
+  </div>
+</div>
+<br>
+		<a th:href="@{/reservas}" class="btn btn-dark">Regresar</a>
+		<a th:href="@{@{/eliminar/{id}(id=${reserva.reservaId})}}"
+		onclick="return confirm('¿Estás seguro de eliminar esta reserva?')"
+		class="btn btn-danger">
+		Eliminar
+		</a>
+
+</div>
+
+
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

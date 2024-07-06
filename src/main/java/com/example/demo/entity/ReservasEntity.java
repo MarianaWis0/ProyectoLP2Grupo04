@@ -49,10 +49,7 @@ public class ReservasEntity {
 	@Column(name = "ocacion_especial", nullable = true,  length = 100)
 	private String ocacion;
 	
-	
-//	@ManyToOne
-//    @JoinColumn(name = "id_estado") 
-//    private EstReservaEntity estadoReserva;
+
 	
 	@ManyToOne
 	@JoinColumn(name="id_usuario", nullable = false)
